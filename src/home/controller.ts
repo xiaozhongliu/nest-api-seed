@@ -1,6 +1,7 @@
-import { Controller, Logger, Get } from '@nestjs/common'
+import { Controller, Get } from '@nestjs/common'
 import { HomeService } from './service'
 import { ConfigService } from '../framework/config.service'
+import { Logger } from '../framework/logger.service'
 
 @Controller()
 export class HomeController {
@@ -12,7 +13,7 @@ export class HomeController {
 
     @Get()
     getHello(): string {
-        this.logger.log(this.config.DEBUG)
+        this.logger.cache('event', 'controller', 'url', 'value')
         return this.homeService.getHello()
     }
 }

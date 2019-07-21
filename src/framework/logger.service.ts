@@ -1,7 +1,7 @@
 import * as log4js from 'log4js'
 import * as dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
-import { LoggerService, Inject } from '@nestjs/common'
+import { LoggerService } from '@nestjs/common'
 import { ConfigService } from './config.service'
 
 export class Logger implements LoggerService {
@@ -66,25 +66,31 @@ export class Logger implements LoggerService {
     request(data: object) {
         this.requestLogger.info(this.mergeData(data))
     }
-    debug(data: string | object) {
-        const dataObj = typeof data === 'string' ? { message: data } : data
-        this.commonLogger.debug(this.mergeData(dataObj, 'DEBUG'))
+    debug(data: object) {
+        this.commonLogger.debug(this.mergeData(this.preproccess(data), 'DEBUG'))
     }
-    log(data: string | object) {
-        const dataObj = typeof data === 'string' ? { message: data } : data
-        this.commonLogger.info(this.mergeData(dataObj, 'INFO'))
+    log(data: object) {
+        this.commonLogger.info(this.mergeData(this.preproccess(data), 'INFO'))
     }
-    warn(data: string | object) {
-        const dataObj = typeof data === 'string' ? { message: data } : data
-        this.commonLogger.warn(this.mergeData(dataObj, 'WARN'))
+    warn(data: object) {
+        this.commonLogger.warn(this.mergeData(this.preproccess(data), 'WARN'))
     }
-    error(data: string | object) {
-        const dataObj = typeof data === 'string' ? { message: data } : data
-        this.commonLogger.error(this.mergeData(dataObj, 'ERROR'))
+    error(data: object) {
+        this.commonLogger.error(this.mergeData(this.preproccess(data), 'ERROR'))
     }
-    fatal(data: string | object) {
-        const dataObj = typeof data === 'string' ? { message: data } : data
-        this.commonLogger.fatal(this.mergeData(dataObj, 'FATAL'))
+    fatal(data: object) {
+        this.commonLogger.fatal(this.mergeData(this.preproccess(data), 'FATAL'))
+    }
+
+    private preproccess(data: object) {
+        return data === undefined
+            || data === null
+            || typeof data === 'symbol'
+            || typeof data === 'boolean'
+            || typeof data === 'string'
+            || typeof data === 'number'
+            || data instanceof Array
+            ? { message: data } : data
     }
 
     private mergeData(data: object, level?: string) {

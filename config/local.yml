@@ -1,3 +1,5 @@
 debug: true
+
+cacheLogPath: log/cache
 commonLogPath: log/common
 requestLogPath: log/request
