@@ -1,0 +1,3 @@
+debug: true
+commonLogPath: log/common
+requestLogPath: log/request

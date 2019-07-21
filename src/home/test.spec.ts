@@ -1,4 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
+import { ConfigModule } from '../framework/config.module'
+import { LoggerModule } from '../framework/logger.module'
 import { HomeController } from './controller'
 import { HomeService } from './service'
 
@@ -8,6 +10,7 @@ describe('HomeController', () => {
 
     beforeEach(async () => {
         const home: TestingModule = await Test.createTestingModule({
+            imports: [ConfigModule, LoggerModule],
             controllers: [HomeController],
             providers: [HomeService],
         }).compile()

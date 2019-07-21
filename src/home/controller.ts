@@ -1,6 +1,6 @@
 import { Controller, Logger, Get } from '@nestjs/common'
 import { HomeService } from './service'
-import { ConfigService } from 'src/framework/config.service'
+import { ConfigService } from '../framework/config.service'
 
 @Controller()
 export class HomeController {

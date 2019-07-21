@@ -8,13 +8,11 @@ if (!process.env.REGION) { process.env.REGION = 'hangzhou' }
 
 @Module({
     imports: [ConfigModule],
-    providers: [
-        {
-            provide: Logger,
-            inject: [ConfigService],
-            useFactory: (config: ConfigService) => new Logger(config),
-        },
-    ],
+    providers: [{
+        provide: Logger,
+        inject: [ConfigService],
+        useFactory: (config: ConfigService) => new Logger(config),
+    }],
     exports: [Logger],
 })
 export class LoggerModule { }

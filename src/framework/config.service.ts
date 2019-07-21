@@ -4,6 +4,9 @@ import * as pack from '../../package.json'
 
 export class ConfigService {
     private readonly envConfig: { [key: string]: string }
+    get(key: string): string {
+        return this.envConfig[key]
+    }
 
     constructor(filePath: string) {
         this.envConfig = yaml.load(filePath)
@@ -21,13 +24,9 @@ export class ConfigService {
         })
     }
 
-    get(key: string): string {
-        return this.envConfig[key]
-    }
-
     get APP_NAME(): string { return pack.name }
-    get SERVER_NAME(): string { return this.envConfig.serverName }
     get SERVER_IP(): string { return this.envConfig.serverIP }
+    get SERVER_NAME(): string { return this.envConfig.serverName }
 
     get DEBUG(): boolean { return Boolean(this.envConfig.debug) }
 }
