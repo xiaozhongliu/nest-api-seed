@@ -90,6 +90,8 @@ export class Logger implements LoggerService {
             || typeof data === 'string'
             || typeof data === 'number'
             || data instanceof Array
+            || data instanceof Map
+            || data instanceof Set
             ? { message: data } : data
     }
 
