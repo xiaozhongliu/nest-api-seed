@@ -97,7 +97,7 @@ export class Logger implements LoggerService {
 
     private mergeData(data: object, level?: string) {
         return JSON.stringify({
-            '@env': process.env.SERVER_ENV,
+            '@env': process.env.NODE_ENV,
             '@region': process.env.REGION,
             '@servername': this.config.SERVER_NAME,
             '@serverip': this.config.SERVER_IP,

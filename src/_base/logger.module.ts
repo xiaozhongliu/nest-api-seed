@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { Logger } from './logger.service'
-import { ConfigService } from './config.service'
 import { ConfigModule } from './config.module'
+import { ConfigService } from './config.service'
 
 @Module({
     imports: [ConfigModule],
