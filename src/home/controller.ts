@@ -1,15 +1,11 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Inject, Get } from '@nestjs/common'
+import { Logger } from '../_base/logger.service'
 import { HomeService } from './service'
-import { ConfigService } from '../framework/config.service'
-import { Logger } from '../framework/logger.service'
 
 @Controller()
 export class HomeController {
-    constructor(
-        private readonly homeService: HomeService,
-        private readonly config: ConfigService,
-        private readonly logger: Logger,
-    ) { }
+    @Inject() private readonly logger: Logger
+    @Inject() private readonly homeService: HomeService
 
     @Get()
     getHello(): string {
