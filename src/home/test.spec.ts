@@ -21,11 +21,11 @@ describe('HomeController', () => {
 
     describe('home', () => {
         it('controller should return "Hello World!"', () => {
-            expect(homeController.getHello()).toBe('Hello World!')
+            expect(homeController.index()).toBe('Hello World!')
         })
 
         it('service should return "Hello World!"', () => {
-            expect(homeService.getHello()).toBe('Hello World!')
+            expect(homeService.index()).toBe('Hello World!')
         })
     })
 })
