@@ -1,5 +1,5 @@
 import { Controller, UseInterceptors, Inject, Get, Post, Body } from '@nestjs/common'
-import { LoggingInterceptor } from '../_interceptor/logging.interceptor'
+import { LoggingInterceptor } from '../../interceptor/logging.interceptor'
 import { HomeService } from './service'
 import { DemoDto } from './dto/demo.dto'
 

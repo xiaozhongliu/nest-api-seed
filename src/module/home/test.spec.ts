@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { ConfigModule } from '../_base/config.module'
-import { LoggerModule } from '../_base/logger.module'
+import { ConfigModule } from '../../facility/config.module'
+import { LoggerModule } from '../../facility/logger.module'
 import { HomeController } from './controller'
 import { HomeService } from './service'
 

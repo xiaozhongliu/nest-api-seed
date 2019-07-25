@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
-import { ConfigModule } from './_base/config.module'
-import { LoggerModule } from './_base/logger.module'
-import { HomeController } from './home/controller'
-import { HomeService } from './home/service'
+import { ConfigModule } from './facility/config.module'
+import { LoggerModule } from './facility/logger.module'
+import { HomeController } from './module/home/controller'
+import { HomeService } from './module/home/service'
 
 @Module({
     imports: [ConfigModule, LoggerModule],
