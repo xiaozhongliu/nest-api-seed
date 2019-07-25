@@ -4,8 +4,6 @@ import { ValidationPipe } from '@nestjs/common'
 
 (async function bootstrap() {
     const app = await NestFactory.create(MainModule)
-    app.useGlobalPipes(new ValidationPipe({
-        skipMissingProperties: true,
-    }))
+    app.useGlobalPipes(new ValidationPipe())
     await app.listen(3000)
 })()
