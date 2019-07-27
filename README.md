@@ -1,2 +1,2 @@
 # nest-api-seed
-An nest api seed project.
+A nest api seed project.

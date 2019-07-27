@@ -1,7 +1,7 @@
 {
   "name": "nest-api-seed",
   "version": "0.0.1",
-  "description": "",
+  "description": "A nest api seed project.",
   "author": "",
   "license": "MIT",
   "scripts": {
